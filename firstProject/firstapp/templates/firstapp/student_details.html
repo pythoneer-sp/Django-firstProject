@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Item Details
+{% endblock %}
+
+{% block content %}
+{% comment %} <h1 class="text-3xl font-bold">Student Details Page</h1> {% endcomment %}
+
+<div class="min-w-screen min-h-screen flex flex-row items-center justify-center">
+    <div class="w-56 h-72 bg-white rounded-l-lg flex items-center overflow-hidden">
+        <img class="h-full w-full object-contain" src="{{students.images.url}}" alt="">
+    </div>
+
+    <div class="w-56 h-72 text-center bg-slate-800 p-2 flex flex-col justify-evenly rounded-r-lg drop-shadow-xl">
+        <h3 class="text-xl text-white font-bold">{{students.name}}</h3>
+        <h3 class="text-lg text-sky-500">Price: ₹{{students.roll}}</h3>
+        <h3 class="text-base text-gray-400">Description: {{students.description}}</h3>
+    </div>
+</div>
+
+
+{% endblock %}

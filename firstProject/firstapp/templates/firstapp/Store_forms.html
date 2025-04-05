@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="text-xl">Items Store</div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="bg-slate-600" type="Submit">Search Stores</button>
+</form>
+
+{% if stores %}
+<div class="text-lg">Stores which have avilable items: </div>
+<ul>
+    {% for store in stores %}
+    <li>{{ store.name }} - {{ store.location }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

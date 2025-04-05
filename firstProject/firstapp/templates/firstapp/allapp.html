@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Apps
+{% endblock %}
+
+{% block content %}
+
+<div class="grid grid-cols-4 gap-8 m-4" >
+{% for s in student %}
+    <div class="bg-gray-600 p-2 rounded-lg shadow-lg flex flex-col items-center">
+        <img class="rounded w-40 h-40 object-cover" src="{{s.images.url}}" alt="">
+        <h3 class="text-xl font-semibold text-gray-100">{{s.name}}</h3>
+        <a href="{% url 'firstapp:student_details' s.id %}">
+            <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-2">
+                ₹ {{s.roll}}{% comment %}-{{s.id}} {% endcomment %}
+            </button>
+        </a>
+    </div>
+
+
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Ansh Stationary
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="shortcut icon" href="{% static "myapp/logo.png" %}" type="image/x-icon">
+    {% tailwind_css %}
+    </head>
+<body class="bg-[url('/static/myapp/bg2.jpg')] bg-cover">
+    <header>
+        <nav class="w-full h-auto bg-gray-800 text-white">
+          <div class="flex justify-between items-center">
+            <div>
+              <a class="flex items-center" href="{% url 'home' %}">
+                <img class="h-14" src="{% static "myapp/logo.png" %}" alt="">
+                <p class="font-bold text-2xl font-sans">Ansh Stationary</p>
+              </a>
+            </div>
+            <div class="pr-2">
+              <ul class="flex">
+                <li class="bg-slate-950 rounded-md px-3 py-2 text-sm font-medium text-white mx-1 hover:bg-white hover:text-slate-900">
+                  <a href="{% url 'firstapp:allapp' %}">Store</a>
+                </li>
+                <li class="rounded-md bg-slate-950 px-3 py-2 text-sm font-medium text-white mx-1  hover:bg-white hover:text-slate-900">
+                  <a href="{% url 'login' %}">LogIn</a>
+                </li>
+                <li class="rounded-md bg-slate-950 px-3 py-2 text-sm font-medium text-white mx-1  hover:bg-white hover:text-slate-900">
+                  <a href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                <li class="rounded-md bg-slate-950 px-3 py-2 text-sm font-medium text-white mx-1  hover:bg-white hover:text-slate-900">
+                  <a href="{% url 'about' %}">About Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    {% comment %} <footer>
+        <p>&copy; 2021 Online Stationary by SauravK</p>
+    </footer> {% endcomment %}
+</body>
+</html>
